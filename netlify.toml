@@ -1,0 +1,105 @@
+[build]
+  base = "webapp"
+  command = "bun install && bun run build"
+  publish = "dist"
+
+# 🪤 Honeypot redirects — common attack probes go to the gotcha page
+[[redirects]]
+  from = "/admin"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/wp-admin"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/wp-login.php"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/.env"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/.env.local"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/phpmyadmin"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/phpmyadmin/*"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/config.php"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/setup.php"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/shell.php"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/backup"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/sql"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/api/v1/users"
+  to = "/gotcha"
+  status = 302
+
+[[redirects]]
+  from = "/server-status"
+  to = "/gotcha"
+  status = 302
+
+# SPA fallback — must come last
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
