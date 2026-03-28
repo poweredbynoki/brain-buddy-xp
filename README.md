@@ -122,7 +122,7 @@ Both the frontend and backend are auto-running via Vibecode services. No manual 
 ## Security Features
 
 The backend implements:
-- **CORS Protection**: Restricted to trusted origins (localhost, vibecode.run, sandbox.dev domains)
+- **CORS Protection**: Restricted to trusted origins (localhost,sandbox.dev domains)
 - **Security Headers**: X-Frame-Options, X-Content-Type-Options, Referrer-Policy
 - **Rate Limiting**: 100 requests per minute per IP
 - **Error Handling**: Global error handler that prevents information disclosure
